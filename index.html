@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dawa Point — Medical Shop in Gole Colony, Nashik</title>
+  <meta name="description" content="Dawa Point - Trusted medical shop in Gole Colony, Nashik. Medicines, syrups, inhalers, supplements. Home delivery & WhatsApp enquiries."/>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2e86c1">
+  <style>
+    /* ---------------- Basic Reset & Typography ---------------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #222;
+      background: #f4f7fb;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    /* ---------------- Header & Nav ---------------- */
+    header {
+      background: linear-gradient(90deg,#2e86c1 0%, #1f6aa8 100%);
+      color: #fff;
+      padding: 18px 16px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+    header img.logo {
+      width: 56px; height: 56px; object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    header h1 { font-size: 1.6rem; letter-spacing: .3px; }
+    header p.subtitle { margin-top:6px; font-size: .95rem; opacity: .95; }
+
+    nav {
+      background: #185a86;
+      padding: 10px 12px;
+      text-align: center;
+      position: sticky;
+      top: 92px;
+      z-index: 998;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+      font-size: .98rem;
+      transition: color .18s, transform .15s;
+    }
+    nav a:hover { color: #ffe082; transform: translateY(-1px); }
+
+    /* ---------------- Hero ---------------- */
+    .hero {
+      height: 320px;
+      background: url('https://img.freepik.com/free-photo/medicine-tablets-pills-wooden-table_1150-17814.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .hero h2 { font-size: 2rem; background: rgba(0,0,0,0.28); padding: 12px 18px; border-radius: 8px; }
+
+    /* ---------------- Container ---------------- */
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 18px; }
+
+    /* ---------------- Sections ---------------- */
+    h2.section-title {
+      color: #165f8a; text-transform: uppercase; margin-bottom: 12px; letter-spacing: .6px;
+    }
+    p.lead { font-size: 1.03rem; margin-bottom: 18px; color: #2b2b2b; }
+
+    /* ---------------- Services ---------------- */
+    .services { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; margin-top: 18px; }
+    .service {
+      background: #fff; width: 240px; border-radius: 10px; padding: 18px; text-align: center;
+      box-shadow: 0 6px 18px rgba(16,40,80,0.06); transition: transform .18s, box-shadow .18s;
+    }
+    .service:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(16,40,80,0.08); }
+    .service img { width: 58px; height: 58px; margin-bottom: 10px; }
+
+    /* ---------------- Product Filters ---------------- */
+    #filterButtons { text-align:center; margin-bottom:16px; }
+    #filterButtons .btn { margin:4px; }
+
+    /* ---------------- Products Grid ---------------- */
+    #productsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 6px 20px rgba(16,40,80,0.06);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(16,40,80,0.09); }
+    .card .media {
+      width: 100%;
+      height: 170px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8f9fb;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card .info { padding: 10px 6px; flex: 1 1 auto; display:flex; flex-direction:column; justify-content:space-between; }
+    .card h3 { margin: 6px 0; color: #165f8a; font-size: 1.05rem; }
+    .card p.desc { color: #333; font-size: .95rem; margin-bottom: 8px; min-height: 42px; }
+    .card .meta { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    .price { font-weight:700; color:#2e86c1; }
+    .actions { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+    .btn {
+      display:inline-block; padding:8px 12px; border-radius:8px; font-weight:600; text-decoration:none; font-size:.95rem;
+      cursor:pointer; border: none;
+    }
+    .btn-primary { background:#2e86c1; color:#fff; }
+    .btn-outline { background:#fff; color:#2e86c1; border:1.6px solid #2e86c1; }
+    .btn-primary:hover { background:#1f6aa8; }
+    .btn-outline:hover { background:#f0fbff; }
+
+    /* ---------------- Modal (product detail) ---------------- */
+    .modal {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.5); z-index: 1500; padding: 18px;
+    }
+    .modal .panel {
+      width: 100%; max-width: 780px; background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 18px 50px rgba(8,30,80,0.25);
+    }
+    .panel .row { display:flex; gap:18px; padding:18px; align-items:flex-start; }
+    .panel .row img { width: 48%; height: 320px; object-fit:cover; border-radius:8px; }
+    .panel .details { width: 52%; }
+    .panel h3 { color:#165f8a; margin-bottom:8px; }
+    .panel p { margin-bottom:12px; }
+    .modal .close { position:absolute; top:22px; right:22px; background:#fff; border-radius:50%; width:40px; height:40px; display:flex;align-items:center;justify-content:center; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+
+    /* ---------------- Contact Form ---------------- */
+    .contact-card { background:#fff; padding:18px; border-radius:10px; box-shadow:0 10px 26px rgba(16,40,80,0.06); max-width:720px; margin:auto; }
+    .contact-card input, .contact-card textarea {
+      width:100%; padding:10px; border-radius:6px; border:1px solid #dcdfe6; margin-bottom:10px; font-size: .95rem;
+    }
+
+    /* ---------------- Footer & Misc ---------------- */
+    footer { background: linear-gradient(90deg,#2e86c1 0%, #1f6aa8 100%); color: #fff; padding: 18px 12px; margin-top: 30px; text-align:center; }
+    .small { font-size: .88rem; opacity: .95; }
+    #backToTop {
+      position: fixed; right: 18px; bottom: 18px; background:#165f8a; color:#fff; width:44px; height:44px; border-radius:50%; display:none; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 8px 22px rgba(8,30,80,0.18);
+      z-index:1200;
+    }
+
+    @media (max-width:720px) {
+      .panel .row { flex-direction: column; }
+      .panel .row img { width: 100%; height: 260px; }
+      .panel .details { width: 100%; }
+      header h1 { font-size:1.2rem; }
+      nav { position: sticky; top: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header role="banner">
+    <div class="brand" aria-hidden="false">
+      <img class="logo" src="https://cdn-icons-png.flaticon.com/512/2966/2966484.png" alt="Dawa Point logo">
+      <div>
+        <h1>Dawa Point</h1>
+        <p class="subtitle">Trusted Medical Shop — Gole Colony, Nashik</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-hidden="false">
+    <h2>Your Health, Our Priority</h2>
+  </section>
+
+  <!-- ABOUT -->
+  <main>
+    <section id="about" class="container" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About Us</h2>
+      <p class="lead">Dawa Point is a neighbourhood medical shop in Gole Colony, Nashik. We stock prescription & OTC medicines, syrups, topical ointments, medical devices, and daily health essentials. We offer friendly advice and home delivery.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container" aria-labelledby="services-title">
+      <h2 id="services-title" class="section-title">Our Services</h2>
+      <div class="services" role="list">
+        <div class="service" role="listitem">
+          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966484.png" alt="medicines icon">
+          <h4>Medicines</h4>
+          <p>Prescription & OTC medication — genuine & affordable.</p>
+        </div>
+        <div class="service" role="listitem">
+          <img src="https://cdn-icons-png.flaticon.com/512/3039/3039436.png" alt="supplements icon">
+          <h4>Supplements</h4>
+          <p>Vitamins, minerals & protein supplements.</p>
+        </div>
+        <div class="service" role="listitem">
+          <img src="https://cdn-icons-png.flaticon.com/512/3019/3019339.png" alt="equipment icon">
+          <h4>Equipment</h4>
+          <p>BP monitors, thermometers, glucometers & accessories.</p>
+        </div>
+        <div class="service" role="listitem">
+          <img src="https://cdn-icons-png.flaticon.com/512/2085/2085206.png" alt="delivery icon">
+          <h4>Home Delivery</h4>
+          <p>Fast delivery inside Nashik — call or WhatsApp to order.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="container" aria-labelledby="products-title">
+      <h2 id="products-title" class="section-title">Our Products</h2>
+      <p class="lead">Click a product for details or tap "Enquire on WhatsApp" to place an order quickly.</p>
+
+      <!-- Product Filters -->
+      <div id="filterButtons">
+        <button class="btn btn-outline" data-filter="all">All</button>
+        <button class="btn btn-outline" data-filter="tablet">Tablets</button>
+        <button class="btn btn-outline" data-filter="syrup">Syrups</button>
+        <button class="btn btn-outline" data-filter="inhaler">Inhalers</button>
+      </div>
+
+      <!-- dynamic products grid -->
+      <div id="productsGrid" aria-live="polite"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact Us</h2>
+      <p class="lead"><strong>Address:</strong> Dawa Point, Gole Colony, Nashik - 422002</p>
+      <p class="lead"><strong>Phone:</strong> +91 7979887743</p>
+      <p class="lead"><strong>Email:</strong> info@dawapoint.com</p>
+      <div class="contact-card" role="form" aria-label="Contact form">
+        <form id="contactForm">
+          <input id="cf-name" type="text" placeholder="Your name" required />
+          <input id="cf-email" type="email" placeholder="Your email" required />
+          <textarea id="cf-msg" rows="5" placeholder="Your message" required></textarea>
+          <div style="display:flex; gap:12px; justify-content:center; margin-top:8px;">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <a class="btn btn-outline" href="https://wa.me/917979887743?text=Hello%20DAWA%20Point" target="_blank" rel="noopener">WhatsApp Us</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Map -->
+      <div style="margin-top:20px;">
+        <iframe title="Gole Colony Nashik map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.58950493546!2d73.7681!3d20.0116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebaaa833b6c3%3A0x1234567890abcdef!2sGole%20Colony%2C%20Nashik!5e0!3m2!1sen!2sin!4v1696256000000"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="small">&copy; <span id="year"></span> Dawa Point — All Rights Reserved</div>
+    <div style="margin-top:8px;" class="small">Follow: <a style="color:#fff; text-decoration:underline" href="#">Facebook</a> · <a style="color:#fff; text-decoration:underline" href="#">Instagram</a></div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <div id="backToTop" title="Back to top" aria-hidden="true">↑</div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="panel" role="document">
+      <div style="padding:10px 12px; display:flex; justify-content:flex-end;">
+        <div class="close" id="modalClose" aria-label="Close product details">✕</div>
+      </div>
+      <div class="row" id="modalBody">
+        <!-- inserted by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------- JavaScript: dynamic products + UI ---------------- -->
+  <script>
+    const products = [
+      { id:'dolo650', name:'Dolo 650', image:'https://www.netmeds.com/images/product-v1/600x600/889439/dolo_650mg_tablet_15s_67621_0_2.jpg', desc:'Paracetamol 650mg – effective for fever and pain relief.', price:'₹30 (15 tabs)', category:'tablet' },
+      { id:'azithral500', name:'Azithral 500', image:'https://www.netmeds.com/images/product-v1/600x600/882265/azithral_500mg_tablet_3s_54650_0.jpg', desc:'Azithromycin 500mg – antibiotic for infections.', price:'₹90 (3 tabs)', category:'tablet' },
+      { id:'crocine', name:'Crocine Tablet', image:'https://cdn1.medicalnewstoday.com/content/images/articles/325/325889/crocine.jpg', desc:'Pain relief and fever reducer.', price:'₹50 (10 tabs)', category:'tablet' },
+      { id:'becosules', name:'Becosules', image:'https://www.netmeds.com/images/product-v1/600x600/885028/becosules_capsule_15s_0.jpg', desc:'Vitamin B complex capsule for energy and immunity.', price:'₹85 (15 caps)', category:'capsule' },
+      { id:'coughsyrup', name:'Cough Syrup', image:'https://www.netmeds.com/images/product-v1/600x600/881234/cough_syrup_100ml_0.jpg', desc:'Relieves cough and throat irritation.', price:'₹70 (100 ml)', category:'syrup' },
+      { id:'asthalin', name:'Asthalin Inhaler', image:'https://www.netmeds.com/images/product-v1/600x600/884512/asthalin_inhaler_0.jpg', desc:'Relief from asthma and bronchial spasm.', price:'₹150', category:'inhaler' }
+    ];
+
+    const productsGrid = document.getElementById('productsGrid');
+    const whatsappNumber = '917979887743';
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, function(m) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; });
+    }
+
+    function renderProducts(list = products){
+      productsGrid.innerHTML='';
+      list.forEach(prod=>{
+        const card = document.createElement('div'); card.className='card';
+        card.innerHTML=`
+          <div class="media"><img src="${prod.image}" alt="${escapeHtml(prod.name)}" loading="lazy"></div>
+          <div class="info">
+            <h3>${escapeHtml(prod.name)}</h3>
+            <p class="desc">${escapeHtml(prod.desc)}</p>
+            <div class="meta">
+              <span class="price">${prod.price}</span>
+              <div class="actions">
+                <button class="btn btn-outline" onclick="openModal('${prod.id}')">Details</button>
+                <a class="btn btn-primary" href="https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello Dawa Point, I want to enquire about '+prod.name)}" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>`;
+        productsGrid.appendChild(card);
+      });
+    }
+
+    // Initial render
+    renderProducts();
+
+    // Filter buttons
+    document.querySelectorAll('#filterButtons button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const filter = btn.getAttribute('data-filter');
+        const filtered = filter==='all'?products:products.filter(p=>p.category===filter);
+        renderProducts(filtered);
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById('productModal');
+    const modalBody = document.getElementById('modalBody');
+    function openModal(id){
+      const prod = products.find(p=>p.id===id);
+      modalBody.innerHTML = `
+        <img src="${prod.image}" alt="${escapeHtml(prod.name)}">
+        <div class="details">
+          <h3>${escapeHtml(prod.name)}</h3>
+          <p>${escapeHtml(prod.desc)}</p>
+          <p><strong>Price:</strong> ${prod.price}</p>
+          <a class="btn btn-primary" href="https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello Dawa Point, I want to enquire about '+prod.name)}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </div>`;
+      modal.style.display='flex';
+      modal.setAttribute('aria-hidden','false');
+    }
+    document.getElementById('modalClose').onclick = ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); }
+    window.onclick = (e)=>{ if(e.target===modal){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); } }
+
+    // Contact form to WhatsApp
+    document.getElementById('contactForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const msg = document.getElementById('cf-msg').value.trim();
+      if(!name||!email||!msg){ alert('Fill all fields'); return; }
+      const link = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello Dawa Point, I am '+name+' ('+email+'). '+msg)}`;
+      window.open(link,'_blank');
+      e.target.reset();
+    });
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', ()=>{ backToTop.style.display = window.scrollY>300?'flex':'none'; });
+    backToTop.onclick = ()=>window.scrollTo({top:0, behavior:'smooth'});
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
